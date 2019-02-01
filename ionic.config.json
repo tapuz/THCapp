@@ -1,6 +1,9 @@
 {
   "name": "THCapp",
-  "integrations": {},
-  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "",
   "id": "6ce8c37d"
 }
