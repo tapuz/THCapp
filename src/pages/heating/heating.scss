@@ -1,3 +1,63 @@
 page-heating {
+    ion-col{
+        padding:1px!important;
+    }
+ 
+    ion-row{
+         padding:1px!important;
+         margin-bottom: -5px!important;
+         margin-top: 0px!important;
+     }
+     .temp{
+        color: color($colors, primary);
+        font-size:3em;
+        text-align: center;
+        margin-top:50px;
+     }
+     .thcButton{
+         height:80px;
+         overflow: visible!important;
+         margin-top:0px!important;
+         margin-bottom:0px!important;
+         
+     }
 
+     .notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+    }
+     
+     .card-background-page {
+ 
+         ion-card {
+          position: relative;
+           text-align: center;
+         }
+       
+         .card-title {
+           position: absolute;
+           top: 36%;
+           font-size: 1.4em;
+           width: 100%;
+           font-weight: bold;
+           color:#fff;
+         }
+       
+         .card-subtitle {
+           font-size: 1.0em;
+           position: absolute;
+           top: 52%;
+           width: 100%;
+           color:#fff;
+         }
+       
+       }
+ 
+       .bg{
+         //background: #1F2833;
+         background: linear-gradient(to bottom, #2c6773 0%, #303d4c 100%);
+     }
 }
