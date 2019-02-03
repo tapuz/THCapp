@@ -21,7 +21,7 @@
       </ion-row>
     <ion-row>
       <ion-col col-12>
-          <button ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">Heating ({{temp}}°C)</button>
+          <button (click)="navToHeating()" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">Heating ({{temp}}°C)</button>
       </ion-col>
     </ion-row>
   </ion-grid>

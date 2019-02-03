@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
-import { PictureproofPage } from '../pictureproof/pictureproof';
-import { DocscanPage } from '../docscan/docscan';
+import { HeatingPage } from '../heating/heating';
+
 import io from 'socket.io-client';
 import * as Config from '../../config';
 
@@ -28,13 +28,11 @@ export class HomePage {
 
     }
 
-  navToPictureProof(): void {
-    this.navCtrl.push(PictureproofPage);
+  navToHeating(): void {
+    this.navCtrl.push(HeatingPage);
   }
 
-  navToDocScan(): void {
-    this.navCtrl.push(DocscanPage);
-  }
+ 
   
   
 
