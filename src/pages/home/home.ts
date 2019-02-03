@@ -22,9 +22,7 @@ export class HomePage {
     {
       this.socket = io(Config.THCServer);
       this.socket.on("temp", (temp) => {
-        console.log('niets!!');
           this.temp=temp;
-                 //console.log(message);
       });  
 
 
