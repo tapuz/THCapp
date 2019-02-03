@@ -1,23 +1,17 @@
-<ion-header>
-  <ion-navbar color='primary'>
-    <ion-title>
-      Tapuz Home Control login
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 
 
-<ion-content padding class="form-content">
+<ion-content padding class="form-content bg">
   <form class="form" [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
-   
-    <img src="assets/imgs/icon.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
-    <ion-item>
+   <br><br><br>
+    <img src="assets/imgs/logo.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    <br><br><br><br>
+    <ion-item class="transparent">
       <ion-label color="primary">Username</ion-label>
       <ion-input type="text" formControlName="username" class="form-controll" required></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="transparent">
       <ion-label color="primary">Password</ion-label>
       <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
     </ion-item>

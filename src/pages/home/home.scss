@@ -1,18 +1,21 @@
 page-home {
-    ion-row{
-        ion-card{
-            width:100% !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        img{
-            width:100%;
-        }
-    }
     
-   }
    ion-col{
        padding:1px!important;
    }
+
+   ion-row{
+        padding:1px!important;
+        margin-bottom: -5px!important;
+        margin-top: 0px!important;
+    }
+    .thcButton{
+        height:80px;
+        
+        margin-top:0px!important;
+        margin-bottom:0px!important;
+        
+    }
     .card-background-page {
 
         ion-card {
@@ -39,8 +42,12 @@ page-home {
       
       }
 
-    .bg{
+      .bg{
         //background: #1F2833;
-        background: linear-gradient(to bottom, #1F2833 0%, rgb(59, 66, 75) 100%);
+        background: linear-gradient(to bottom, #2c6773 0%, #303d4c 100%);
+    }
+
+    .transparent {
+        background-color: transparent;
     }
 }
