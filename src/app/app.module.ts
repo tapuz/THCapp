@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { HeatingPage } from '../pages/heating/heating';
 import { LivingPage } from '../pages/living/living';
+import { GardenPage } from '../pages/garden/garden';
 
 
 import { WordpressService } from '../services/wordpress.service';
@@ -27,7 +28,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HomePage,
     LoginPage,
     HeatingPage,
-    LivingPage
+    LivingPage,
+    GardenPage
 
   ],
   imports: [
@@ -42,7 +44,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HomePage,
     LoginPage,
     HeatingPage,
-    LivingPage
+    LivingPage,
+    GardenPage
   ],
   providers: [
     StatusBar,

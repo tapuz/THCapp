@@ -1,0 +1,30 @@
+page-garden {
+    ion-col{
+        padding:1px!important;
+    }
+ 
+    ion-row{
+         padding:0px!important;
+         margin-bottom: -8px!important;
+         margin-top: -1px!important;
+     }
+     .temp{
+        color: color($colors, primary);
+        font-size:3em;
+        text-align: center;
+        margin-top:50px;
+     }
+     .thcButton{
+         height:80px;
+         overflow: visible!important;
+         margin-top:0px!important;
+         margin-bottom:0px!important;
+         
+     }
+ 
+       .bg{
+         //background: #1F2833;
+         background: linear-gradient(to bottom, #2c6773 0%, #303d4c 100%);
+     }
+
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { HeatingPage } from '../heating/heating';
 import { LivingPage } from '../living/living';
+import { GardenPage } from '../garden/garden';
 
 import io from 'socket.io-client';
 import * as Config from '../../config';
@@ -38,6 +39,10 @@ export class HomePage {
     this.navCtrl.push(LivingPage,{socket:this.socket});
   }
  
+  navToGarden(): void {
+    this.navCtrl.push(GardenPage,{socket:this.socket});
+  }
+
   alloff():void {
     this.socket.emit('alloff');
   }
