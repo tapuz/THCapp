@@ -33,6 +33,8 @@ export class HeatingPage {
        });  
   }
 
+  
+
   toggleItem(item){
     //item.status = (item.status == 0 ? 1:0);
     console.log('ID: ' + item.id);

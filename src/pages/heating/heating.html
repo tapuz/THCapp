@@ -1,11 +1,11 @@
 
 <ion-content no-padding class="card-background-page bg">
-    <img src="assets/imgs/heating.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;">
+    <img src="assets/imgs/heating.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto;padding-bottom:50px;">
     <ion-grid>
       <ion-row>
         <ion-col col-6 col-md-6 col-xl-6 *ngFor="let heatingItem of heatingItems">
-          <button ion-button full outline class="thcButton"  style="margin-top:30px;" (click)="toggleItem(heatingItem)" type="button">
-              <ion-icon [name]="heatingItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon>
+          <button ion-button full [outline] =  "heatingItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleItem(heatingItem)" type="button">
+              <!-- <ion-icon [name]="heatingItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
             {{heatingItem.descr}}</button>
         </ion-col> 
       </ion-row>

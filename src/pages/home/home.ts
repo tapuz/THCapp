@@ -22,7 +22,9 @@ export class HomePage {
   interval:any;
   buttonColor:any;
   CarwashBtnOutline:boolean=true;
+  ParkingBtnOutline:boolean=true;
   relaisItems:any;
+  dimItems:any;
   logo:any;
   
 
@@ -38,14 +40,16 @@ export class HomePage {
       this.socket = io(Config.THCServer);
       this.socket.on("temp", (temp) => {
           this.temp=temp;
+          console.log(this.temp + ' is the temp');
       });
       //get the carwash status
       this.socket.on("relaisStats", (stats) => {
         var items  = JSON.parse(stats)
-        this.relaisItems =  items.filter(function(item) {
-          return item.id == "20";
-        });
-        this.CarwashBtnOutline = this.relaisItems[0].status;
+        var CarwashRelais =  items.filter(function(item) {return item.id == "19";});
+        this.CarwashBtnOutline = !CarwashRelais[0].status;
+
+        var ParkingRelais = items.filter(function(item) {return item.id == "8";});
+        this.ParkingBtnOutline = !ParkingRelais[0].status;
         
       });
       this.socket.on('connect',function(){
@@ -72,7 +76,7 @@ export class HomePage {
     }
 
   navToHeating(): void {
-    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp});
+    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp,relaisItems:this.relaisItems});
     
   }
 
@@ -86,6 +90,11 @@ export class HomePage {
 
   alloff():void {
     this.socket.emit('alloff');
+  }
+
+  comingHome():void {
+    this.socket.emit('');
+    console.log('home');
   }
 
   touchAllOffStart(){
@@ -116,9 +125,15 @@ export class HomePage {
   }
   
   toggleCarwash(){
-    this.socket.emit('toggleItem',20);
-    console.log('emmitting');
+    this.socket.emit('toggleItem',19);
+    
   }
+
+  toggleParking(){
+    this.socket.emit('toggleItem',8);
+    
+  }
+  
 
   
   
