@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the LivingPage page.
+ * Generated class for the MasterbedroomPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +10,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-living',
-  templateUrl: 'living.html',
+  selector: 'page-masterbedroom',
+  templateUrl: 'masterbedroom.html',
 })
-export class LivingPage {
+export class MasterbedroomPage {
+
   socket:any;
   relaisItems:any;
   dimItems:any;
@@ -21,23 +22,24 @@ export class LivingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.socket = navParams.get('socket');
+    this.socket.emit('getScenes');
+    this.socket.on ('scenes',(data) => {
+      console.log('HERE IS THE SHIT!! : ' + data );  
+    });
     this.socket.on("relaisStats", (stats) => {
           var items  = JSON.parse(stats)
           this.relaisItems =  items.filter(function(item) {
-            return item.gr == "Living";
+            return item.gr == "Master Bedroom";
           });
           
       });  
     this.socket.on("dimStats", (stats) => {
         var items  = JSON.parse(stats)
         this.dimItems =  items.filter(function(item) {
-          return item.gr == "Living";
+          return item.gr == "Master Bedroom";
         });
         
-    });
-    
-
-    
+    });  
   }
 
   toggleRelaisItem(item){

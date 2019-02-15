@@ -3,6 +3,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { HeatingPage } from '../heating/heating';
 import { LivingPage } from '../living/living';
 import { GardenPage } from '../garden/garden';
+import { MasterbedroomPage } from '../masterbedroom/masterbedroom';
 
 import io from 'socket.io-client';
 import * as Config from '../../config';
@@ -40,10 +41,12 @@ export class HomePage {
       this.socket = io(Config.THCServer);
       this.socket.on("temp", (temp) => {
           this.temp=temp;
-          console.log(this.temp + ' is the temp');
+          
       });
       //get the carwash status
       this.socket.on("relaisStats", (stats) => {
+
+
         var items  = JSON.parse(stats)
         var CarwashRelais =  items.filter(function(item) {return item.id == "19";});
         this.CarwashBtnOutline = !CarwashRelais[0].status;
@@ -76,7 +79,12 @@ export class HomePage {
     }
 
   navToHeating(): void {
-    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp,relaisItems:this.relaisItems});
+    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp});
+    
+  }
+
+  navToMasterBedroom(): void {
+    this.navCtrl.push(MasterbedroomPage,{socket:this.socket});
     
   }
 
@@ -131,6 +139,7 @@ export class HomePage {
 
   toggleParking(){
     this.socket.emit('toggleItem',8);
+    
     
   }
   

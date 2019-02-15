@@ -12,10 +12,18 @@
       </ion-row>
 
       <ion-row>
-          <ion-col col-6 col-md-6 col-xl-6 *ngFor="let dimItem of dimItems">
+          <ion-col col-12 col-md-12 col-xl-12 *ngFor="let dimItem of dimItems">
+             
             <button ion-button full [outline] =  "dimItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleDimItem(dimItem)" type="button">
                 <!-- <ion-icon [name]="dimItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
               {{dimItem.descr}}</button>
+              <ion-item>
+                  <ion-range [(ngModel)]=dimItem.status min="{{dimItem.dimMin}}" max="{{dimItem.dimMax}}" step="5" >
+                    <ion-icon small range-left name="sunny"></ion-icon>
+                    <ion-icon range-right name="sunny"></ion-icon>
+                  </ion-range>
+              </ion-item>
+              
           </ion-col> 
         </ion-row>
       

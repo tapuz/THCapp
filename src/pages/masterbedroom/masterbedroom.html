@@ -1,0 +1,32 @@
+<ion-content no-padding class="card-background-page bg">
+  <ion-title >
+      <span text-color="primary"> Bedroom </span>
+   </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-6 col-xl-6 *ngFor="let relaisItem of relaisItems">
+        <button ion-button full [outline] =  "relaisItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleRelaisItem(relaisItem)" type="button">
+            <!-- <ion-icon [name]="relaisItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
+          {{relaisItem.descr}}</button>
+      </ion-col> 
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-6 col-md-6 col-xl-6 *ngFor="let dimItem of dimItems">
+          <button ion-button full [outline] =  "dimItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleDimItem(dimItem)" type="button">
+              <!-- <ion-icon [name]="dimItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
+            {{dimItem.descr}}</button>
+        </ion-col> 
+      </ion-row>
+    
+  </ion-grid>
+  <img src="assets/imgs/logo.png" style="opacity:0.03;display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+
+</ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar transparent>
+      <button ion-button full text-uppercase (click)="navBack()">Back</button>
+    </ion-toolbar>
+  </ion-footer>
+
