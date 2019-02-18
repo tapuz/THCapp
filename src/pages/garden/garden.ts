@@ -19,6 +19,7 @@ export class GardenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.socket = navParams.get('socket');
+    this.processRelaisItems(navParams.get('relaisItems'));
     this.socket.on("relaisStats", (stats) => {
           var items  = JSON.parse(stats)
           this.relaisItems =  items.filter(function(item) {
@@ -28,10 +29,20 @@ export class GardenPage {
       });  
   }
 
+  processRelaisItems(items){
+    var app=this;
+     items  = JSON.parse(items)
+         app.relaisItems =  items.filter(function(item) {
+           return item.gr == "Tuin";
+         });
+         
+   }
+
   toggleRelaisItem(item){
     //item.status = (item.status == 0 ? 1:0);
     console.log('ID: ' + item.id);
     this.socket.emit('toggleItem',item.id);
+    item.status=!item.status;
     
   }
 

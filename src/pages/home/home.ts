@@ -46,7 +46,7 @@ export class HomePage {
       //get the carwash status
       this.socket.on("relaisStats", (stats) => {
 
-
+        this.relaisItems = stats;
         var items  = JSON.parse(stats)
         var CarwashRelais =  items.filter(function(item) {return item.id == "19";});
         this.CarwashBtnOutline = !CarwashRelais[0].status;
@@ -55,6 +55,11 @@ export class HomePage {
         this.ParkingBtnOutline = !ParkingRelais[0].status;
         
       });
+
+      this.socket.on("dimStats", (stats) => {this.dimItems = stats;});
+
+      //this.socket.on('statusUpdate',(status)=>{console.log('got the update!!')});
+
       this.socket.on('connect',function(){
         
         app.logo ='assets/imgs/logo.png';
@@ -89,11 +94,11 @@ export class HomePage {
   }
 
   navToLiving(): void {
-    this.navCtrl.push(LivingPage,{socket:this.socket});
+    this.navCtrl.push(LivingPage,{socket:this.socket,relaisItems:this.relaisItems,dimItems:this.dimItems});
   }
  
   navToGarden(): void {
-    this.navCtrl.push(GardenPage,{socket:this.socket});
+    this.navCtrl.push(GardenPage,{socket:this.socket,relaisItems:this.relaisItems,dimItems:this.dimItems});
   }
 
   alloff():void {
@@ -134,12 +139,13 @@ export class HomePage {
   
   toggleCarwash(){
     this.socket.emit('toggleItem',19);
+    this.CarwashBtnOutline = !this.CarwashBtnOutline;
     
   }
 
   toggleParking(){
     this.socket.emit('toggleItem',8);
-    
+    this.ParkingBtnOutline = !this.ParkingBtnOutline;
     
   }
   

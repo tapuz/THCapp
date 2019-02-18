@@ -10,21 +10,27 @@
             {{relaisItem.descr}}</button>
         </ion-col> 
       </ion-row>
-
-      <ion-row>
-          <ion-col col-12 col-md-12 col-xl-12 *ngFor="let dimItem of dimItems">
-             
-            <button ion-button full [outline] =  "dimItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleDimItem(dimItem)" type="button">
-                <!-- <ion-icon [name]="dimItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
-              {{dimItem.descr}}</button>
+      
+      <ion-row *ngFor="let dimItem of dimItems">
+          <ion-col col-2>
+              <ion-icon (click)="toggleDimItem(dimItem)" name="logo-angular" [color]="dimItem.status ? 'primary':'danger'" style="font-size:50px;margin-top:20px;"></ion-icon>
+          </ion-col>
+          <ion-col col-10>
+              <!-- <button ion-button full [outline] =  "dimItem.status ? 'true' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleDimItem(dimItem)" type="button">{{dimItem.descr}}</button> -->
+              <span class="lamp-label">{{dimItem.descr}}</span>
               <ion-item>
-                  <ion-range [(ngModel)]=dimItem.status min="{{dimItem.dimMin}}" max="{{dimItem.dimMax}}" step="5" >
-                    <ion-icon small range-left name="sunny"></ion-icon>
-                    <ion-icon range-right name="sunny"></ion-icon>
+                  <ion-range (ionFocus)="dimItemFocus()" (ionBlur)="dimItemBlur()" (ionChange)="dimItemChange(dimItem)" [(ngModel)]=dimItem.status min="{{dimItem.dimMin}}" max="{{dimItem.dimMax}}" step="1" >
+                    <!-- <ion-icon small range-left name="sunny"></ion-icon>
+                    <ion-icon range-right name="sunny"></ion-icon> -->
                   </ion-range>
               </ion-item>
+            
               
-          </ion-col> 
+          </ion-col>   
+           
+              
+            
+          
         </ion-row>
       
     </ion-grid>
