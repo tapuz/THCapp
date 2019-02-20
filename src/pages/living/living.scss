@@ -1,10 +1,5 @@
 page-living {
-    .lamp-label{
-        font-size:1.1em;
-        color: color($colors, primary);
-        margin-left:30px;
-        
-    }
+    
     .item{
         background-color: transparent;
     }
@@ -17,6 +12,8 @@ page-living {
     .col{
         margin-bottom:-3px;
     }
+
+    
  
     ion-row{
          padding:0px!important;

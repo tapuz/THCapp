@@ -3,14 +3,25 @@
         <span text-color="primary"> Garden </span>
      </ion-title>
     <ion-grid>
-      <ion-row>
-        <ion-col col-6 col-md-6 col-xl-6 *ngFor="let relaisItem of relaisItems">
-          <button ion-button full [outline] =  "relaisItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleRelaisItem(relaisItem)" type="button">
-              <!-- <ion-icon [name]="relaisItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
-            {{relaisItem.descr}}</button>
-        </ion-col> 
-      </ion-row>
+      
+      
+        <ion-row *ngFor="let relaisItem of lightItems" class="row-item">
+          <ion-col col-2>
+            <ion-icon (click)="toggleRelaisItem(relaisItem)" name="custom-bulb" [color]="relaisItem.status ? 'danger':'primary'" style="font-size:50px;margin-top:5px;"></ion-icon>
+          </ion-col>
+          <ion-col col-10 class="col-item-label">
+            <span class="lamp-label">{{relaisItem.descr}}</span>
+          </ion-col>
+        </ion-row>
 
+        <ion-row *ngFor="let relaisItem of sprinklerItems" class="row-item">
+            <ion-col col-2>
+              <ion-icon (click)="toggleRelaisItem(relaisItem)" name="custom-sprinkler" [color]="relaisItem.status ? 'danger':'primary'" style="font-size:50px;margin-top:20px;"></ion-icon>
+            </ion-col>
+            <ion-col col-10 class="col-item-label">
+              <span class="lamp-label">{{relaisItem.descr}}</span>
+            </ion-col>
+        </ion-row>
      
       
     </ion-grid>
@@ -24,3 +35,18 @@
       </ion-toolbar>
     </ion-footer>
 
+    <!-- <ion-row *ngFor="let relaisItem of lightItems">
+        <ion-col col-12>
+            <button (click)="toggleRelaisItem(relaisItem)" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">
+                <ion-icon style="font-size:50px;margin-top:-10px;margin-right:7px;" name="custom-bulb"></ion-icon>
+                {{relaisItem.descr}}</button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let relaisItem of sprinklerItems">
+        <ion-col col-12>
+            <button (click)="toggleRelaisItem(relaisItem)" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">
+                <ion-icon style="font-size:50px;margin-top:-10px;margin-right:7px;" name="custom-sprinkler"></ion-icon>
+                {{relaisItem.descr}}</button>
+        </ion-col>
+    </ion-row> -->

@@ -16,7 +16,59 @@
 // automatically applied to the <body> element in the app.
 
 
-ion-icon{
+ion-icon {
     padding-right:15px;
-}
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+    }
+  
+    &[class*="custom-bulb"] {
+      mask-image: url(../assets/imgs/bulb.svg);
+    }
+    
+    &[class*="custom-heating"] {
+     mask-image: url(../assets/imgs/heating.png);
+      }
+    &[class*="custom-carwash"] {
+     mask-image: url(../assets/imgs/carwash.png);
+    }
+    &[class*="custom-scenes"] {
+     mask-image: url(../assets/imgs/scenes.png);
+
+    }
+    &[class*="custom-sprinkler"] {
+     mask-image: url(../assets/imgs/sprinkler.png);
+        
+    }
+  }
+
+  .lamp-label-dim{
+    font-size:1.1em;
+    color: color($colors, primary);
+    margin-left:30px;
+    
+   }
+
+   .lamp-label{
+    font-size:1.4em;
+    color: color($colors, primary);
+    margin-left:30px;
+    
+   }
+
+   .col-item-label{
+       padding-top:30px;
+       
+   }
+
+   .row-item {
+       //border-top: 1px solid color($colors, primary);
+       border-bottom: 1px solid color($colors, primary);
+       
+   }
 

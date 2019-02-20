@@ -15,26 +15,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GardenPage {
   socket:any;
-  relaisItems:any;
+  lightItems:any;
+  sprinklerItems:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.socket = navParams.get('socket');
     this.processRelaisItems(navParams.get('relaisItems'));
+
     this.socket.on("relaisStats", (stats) => {
-          var items  = JSON.parse(stats)
-          this.relaisItems =  items.filter(function(item) {
-            return item.gr == "Tuin";
-          });
+          this.processRelaisItems(stats);
           
       });  
   }
 
   processRelaisItems(items){
     var app=this;
-     items  = JSON.parse(items)
-         app.relaisItems =  items.filter(function(item) {
+     this.lightItems= this.sprinklerItems = JSON.parse(items)
+         app.lightItems =  app.lightItems.filter(function(item) {
            return item.gr == "Tuin";
          });
+         app.sprinklerItems =  app.sprinklerItems.filter(function(item) {
+           return item.gr == "Bewatering";
+         });
+
+
+
          
    }
 

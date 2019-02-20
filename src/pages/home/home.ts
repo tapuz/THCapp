@@ -35,17 +35,17 @@ export class HomePage {
     public navCtrl: NavController, 
     )
     {
-
+      console.log('constructor Home');
       var app = this;
-      //this.tryingToConnect();
       this.socket = io(Config.THCServer);
       this.socket.on("temp", (temp) => {
           this.temp=temp;
           
       });
-      //get the carwash status
+      
+      //this.socket.emit("getStats");
       this.socket.on("relaisStats", (stats) => {
-
+        console.log('got rs in home');
         this.relaisItems = stats;
         var items  = JSON.parse(stats)
         var CarwashRelais =  items.filter(function(item) {return item.id == "19";});
@@ -56,7 +56,8 @@ export class HomePage {
         
       });
 
-      this.socket.on("dimStats", (stats) => {this.dimItems = stats;});
+      this.socket.on("dimStats", (stats) => {this.dimItems = stats;
+      console.log('got DIM in home');});
 
       //this.socket.on('statusUpdate',(status)=>{console.log('got the update!!')});
 
@@ -84,12 +85,12 @@ export class HomePage {
     }
 
   navToHeating(): void {
-    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp});
+    this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp,relaisItems:this.relaisItems});
     
   }
 
   navToMasterBedroom(): void {
-    this.navCtrl.push(MasterbedroomPage,{socket:this.socket});
+    this.navCtrl.push(MasterbedroomPage,{socket:this.socket,relaisItems:this.relaisItems,dimItems:this.dimItems});
     
   }
 
@@ -149,8 +150,12 @@ export class HomePage {
     
   }
   
-
   
+
+  ionViewWillEnter() {
+   
+    console.log('ionViewWillEnter HomePage');
+  }
   
   
 

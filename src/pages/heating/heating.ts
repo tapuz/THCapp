@@ -21,11 +21,17 @@ export class HeatingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.socket = navParams.get('socket');
     this.temp = navParams.get('temp');
-    this.socket.on("relaisStats", (stats) => {
-          var items  = JSON.parse(stats)
-          this.heatingItems =  items.filter(function(item) {
-            return item.gr == "Verwarming";
-          });
+    this.heatingItems =  JSON.parse(navParams.get('relaisItems')).filter(function(item){
+      return item.gr == "Verwarming";
+      })
+    
+
+
+     this.socket.on("relaisStats", (stats) => {
+           var items  = JSON.parse(stats)
+           this.heatingItems =  items.filter(function(item) {
+             return item.gr == "Verwarming";
+           });
           
       });  
       this.socket.on("temp", (temp) => {

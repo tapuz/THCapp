@@ -21,40 +21,77 @@ export class MasterbedroomPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    var app = this;
     this.socket = navParams.get('socket');
+    this.processDimItems(navParams.get('dimItems'));
+    this.processRelaisItems(navParams.get('relaisItems'));
     this.socket.emit('getScenes');
     this.socket.on ('scenes',(data) => {
       console.log('HERE IS THE SHIT!! : ' + data );  
     });
     this.socket.on("relaisStats", (stats) => {
-          var items  = JSON.parse(stats)
-          this.relaisItems =  items.filter(function(item) {
-            return item.gr == "Master Bedroom";
-          });
-          
+         app.processRelaisItems(stats);
       });  
     this.socket.on("dimStats", (stats) => {
-        var items  = JSON.parse(stats)
-        this.dimItems =  items.filter(function(item) {
-          return item.gr == "Master Bedroom";
-        });
+        app.processDimItems(stats);
         
     });  
   }
 
+  processRelaisItems(items){
+    console.log('proc relais in living page');
+     var app=this;
+      items  = JSON.parse(items)
+          app.relaisItems =  items.filter(function(item) {
+            return item.gr == "Master Bedroom";
+          });
+          
+    }
+  
+  processDimItems(items){
+   
+     console.log('not blocking');
+    var app = this;
+     items  = JSON.parse(items)
+          app.dimItems =  items.filter(function(item) {
+            return item.gr == "Master Bedroom";
+         });
+    
+  }
+  
+
   toggleRelaisItem(item){
-    //item.status = (item.status == 0 ? 1:0);
-    console.log('ID: ' + item.id);
     this.socket.emit('toggleItem',item.id);
-    console.log('emmitting');
+    item.status=!item.status;
   }
 
   toggleDimItem(item){
-    //item.status = (item.status == 0 ? 1:0);
-    console.log('ID: ' + item.id);
     this.socket.emit('toggleDimItem',item.id);
-    console.log('emmitting');
+    if(item.status || item.status > 0){item.status=0}else{item.status=100};
+    
   }
+
+  dimItemChange(item){
+    console.log('changing!!!');
+    
+  }
+
+  dimItemFocus(){
+    console.log('FOCUS');
+   
+  }
+  dimItemBlur(item){
+    console.log('BLUR');
+    this.socket.emit('setDimItem',item);
+    if(item.status>0)item.status=true;
+   
+    //setTimeout(function(){ app.lockDimUpdates = false; }, 10000);
+    
+  }
+
+
+
+
 
   navBack(): void {
     //this.navCtrl.push(HomePage);

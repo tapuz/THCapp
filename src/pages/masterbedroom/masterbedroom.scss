@@ -1,4 +1,10 @@
 page-masterbedroom {
+    .item{
+        background-color: transparent;
+    }
+    .item-inner{
+        border:0px!important;
+    }
     ion-col{
         padding:1px!important;
     }
@@ -25,7 +31,7 @@ page-masterbedroom {
          
      }
  
-       .bg{
+    .bg{
          //background: #1F2833;
          background: linear-gradient(to bottom, #2c6773 0%, #303d4c 100%);
      }

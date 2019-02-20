@@ -4,8 +4,8 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6 col-md-6 col-xl-6 *ngFor="let heatingItem of heatingItems">
-          <button ion-button full [outline] =  "heatingItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleItem(heatingItem)" type="button">
-              <!-- <ion-icon [name]="heatingItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
+          <button ion-button full outline class="thcButton"  style="margin-top:30px;" (click)="toggleItem(heatingItem)" type="button">
+              <ion-icon name="custom-heating" [color]="heatingItem.status ? 'danger':'primary'"></ion-icon>
             {{heatingItem.descr}}</button>
         </ion-col> 
       </ion-row>
