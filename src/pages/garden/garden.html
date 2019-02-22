@@ -2,29 +2,32 @@
     <ion-title >
         <span text-color="primary"> Garden </span>
      </ion-title>
-    <ion-grid>
-      
-      
-        <ion-row *ngFor="let relaisItem of lightItems" class="row-item">
-          <ion-col col-2>
-            <ion-icon (click)="toggleRelaisItem(relaisItem)" name="custom-bulb" [color]="relaisItem.status ? 'danger':'primary'" style="font-size:50px;margin-top:5px;"></ion-icon>
-          </ion-col>
-          <ion-col col-10 class="col-item-label">
-            <span class="lamp-label">{{relaisItem.descr}}</span>
-          </ion-col>
-        </ion-row>
+     <ion-list>
+        <ion-list-header>Lights</ion-list-header>
+         
+          <ion-item *ngFor="let relaisItem of lightItems" color="primary">
+              <ion-avatar item-end>
+                  <ion-icon  (click)="toggleRelaisItem(relaisItem)" name="custom-bulb" [color]="relaisItem.status ? 'yellow':'primary'" class="icon-relais"></ion-icon>
+              </ion-avatar>
+              {{relaisItem.descr}}
+              
+          </ion-item>
+        <ion-list-header>Sprinklers</ion-list-header>
 
-        <ion-row *ngFor="let relaisItem of sprinklerItems" class="row-item">
-            <ion-col col-2>
-              <ion-icon (click)="toggleRelaisItem(relaisItem)" name="custom-sprinkler" [color]="relaisItem.status ? 'danger':'primary'" style="font-size:50px;margin-top:20px;"></ion-icon>
-            </ion-col>
-            <ion-col col-10 class="col-item-label">
-              <span class="lamp-label">{{relaisItem.descr}}</span>
-            </ion-col>
-        </ion-row>
-     
-      
-    </ion-grid>
+          <ion-item *ngFor="let relaisItem of sprinklerItems" style="background: transparent;" color="primary">
+              <ion-avatar item-end>
+                  <ion-icon  (click)="toggleRelaisItem(relaisItem)" name="custom-sprinkler" [color]="relaisItem.status ? 'green':'primary'" class="icon-relais"></ion-icon>
+              </ion-avatar>
+              {{relaisItem.descr}}
+              
+          </ion-item>
+            
+            
+    </ion-list>
+
+
+
+   
     <img src="assets/imgs/logo.png" style="opacity:0.03;display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
 
   </ion-content>
@@ -35,18 +38,4 @@
       </ion-toolbar>
     </ion-footer>
 
-    <!-- <ion-row *ngFor="let relaisItem of lightItems">
-        <ion-col col-12>
-            <button (click)="toggleRelaisItem(relaisItem)" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">
-                <ion-icon style="font-size:50px;margin-top:-10px;margin-right:7px;" name="custom-bulb"></ion-icon>
-                {{relaisItem.descr}}</button>
-        </ion-col>
-    </ion-row>
-
-    <ion-row *ngFor="let relaisItem of sprinklerItems">
-        <ion-col col-12>
-            <button (click)="toggleRelaisItem(relaisItem)" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">
-                <ion-icon style="font-size:50px;margin-top:-10px;margin-right:7px;" name="custom-sprinkler"></ion-icon>
-                {{relaisItem.descr}}</button>
-        </ion-col>
-    </ion-row> -->
+   

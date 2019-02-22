@@ -45,6 +45,11 @@ ion-icon {
      mask-image: url(../assets/imgs/sprinkler.png);
         
     }
+
+    &[class*="custom-parking"] {
+        mask-image: url(../assets/imgs/parking.png);
+           
+    }
   }
 
   .lamp-label-dim{
@@ -72,3 +77,25 @@ ion-icon {
        
    }
 
+   .icon-relais{
+    font-size:50px;
+    
+   }
+
+   .icon-dim{
+    font-size:50px;
+    margin-top:5px;
+   }
+
+   .item{
+    background-color: transparent;
+}
+.item-inner{
+    //border:rgba(42,213,219,.5) 10px!important;
+    border:1px!important;
+}
+   
+.list-header{
+    color:color($colors, primary);
+    font-size: 1.2em;
+}

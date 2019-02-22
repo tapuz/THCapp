@@ -1,40 +1,33 @@
 <ion-content no-padding class="card-background-page bg">
   <ion-title >
-      <span text-color="primary"> Bedroom </span>
+      <span text-color="white">Master Bedroom </span>
    </ion-title>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6 col-md-6 col-xl-6 *ngFor="let relaisItem of relaisItems">
-        <button ion-button full [outline] =  "relaisItem.status ? 'false' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleRelaisItem(relaisItem)" type="button">
-            <!-- <ion-icon [name]="relaisItem.status ? 'radio-button-on' : 'radio-button-off' "></ion-icon> -->
-          {{relaisItem.descr}}</button>
-      </ion-col> 
-    </ion-row>
 
-    <ion-row *ngFor="let dimItem of dimItems">
-        <ion-col col-2>
-            
-            <ion-icon (click)="toggleDimItem(dimItem)" name="custom-bulb" [color]="dimItem.status ? 'danger':'primary'" style="font-size:50px;margin-top:5px;"></ion-icon>
-        </ion-col>
-        <ion-col col-10>
-            <!-- <button ion-button full [outline] =  "dimItem.status ? 'true' : 'true' " class="thcButton"  style="margin-top:30px;" (click)="toggleDimItem(dimItem)" type="button">{{dimItem.descr}}</button> -->
-            <span class="lamp-label-dim">{{dimItem.descr}}</span>
-            <ion-item>
-                <ion-range (ionFocus)="dimItemFocus()" (ionBlur)="dimItemBlur(dimItem)" (ionChange)="dimItemChange(dimItem)" [(ngModel)]=dimItem.status min="{{dimItem.dimMin}}" max="{{dimItem.dimMax}}" step="1" >
-                  <!-- <ion-icon small range-left name="sunny"></ion-icon>
-                  <ion-icon range-right name="sunny"></ion-icon> -->
-                </ion-range>
-            </ion-item>
+  <ion-list>
+      <ion-list-header>
+          Lights
+        </ion-list-header>
+       
+        <ion-item *ngFor="let relaisItem of relaisItems" color="primary">
+            <ion-avatar item-end>
+                <ion-icon  (click)="toggleRelaisItem(relaisItem)" name="custom-bulb" [color]="relaisItem.status ? 'yellow':'primary'" class="icon-relais"></ion-icon>
+            </ion-avatar>
+            {{relaisItem.descr}}
+            <!-- <button ion-button outline item-end>View</button> -->
+          </ion-item>
           
-            
-        </ion-col>   
-         
-            
-          
-        
-      </ion-row>
-    
-  </ion-grid>
+          <ion-item *ngFor="let dimItem of dimItems" color="primary">
+              <span item-start style="width: 23%">{{dimItem.descr}}</span>
+              <ion-avatar item-end>
+                  <ion-icon (click)="toggleDimItem(dimItem)" name="custom-bulb" [color]="dimItem.status ? 'yellow':'primary'" class="icon-relais"></ion-icon>
+              </ion-avatar>
+              <ion-range item-content (ionFocus)="dimItemFocus()" (ionBlur)="dimItemBlur(dimItem)" (ionChange)="dimItemChange(dimItem)" [(ngModel)]=dimItem.status min="{{dimItem.dimMin}}" max="{{dimItem.dimMax}}" step="1" >
+              </ion-range>
+          </ion-item>
+  </ion-list>
+  
+
+
   <img src="assets/imgs/logo.png" style="opacity:0.03;display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
 
 </ion-content>

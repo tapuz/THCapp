@@ -1,35 +1,12 @@
 page-masterbedroom {
-    .item{
-        background-color: transparent;
-    }
-    .item-inner{
-        border:0px!important;
-    }
-    ion-col{
-        padding:1px!important;
-    }
-    .col{
-        margin-bottom:-3px;
-    }
- 
-    ion-row{
-         padding:0px!important;
-         margin-bottom: -8px!important;
-         margin-top: 8px!important;
-     }
+    
      .temp{
         color: color($colors, primary);
         font-size:3em;
         text-align: center;
         margin-top:50px;
      }
-     .thcButton{
-         height:80px;
-         overflow: visible!important;
-         margin-top:0px!important;
-         margin-bottom:0px!important;
-         
-     }
+     
  
     .bg{
          //background: #1F2833;
