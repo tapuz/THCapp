@@ -1,0 +1,31 @@
+<ion-content no-padding class="card-background-page bg">
+  <ion-title >
+      <span text-color="primary"> Attic </span>
+   </ion-title>
+
+   <ion-list>
+      <ion-list-header>
+          Lights
+        </ion-list-header>
+       
+        <ion-item *ngFor="let relaisItem of relaisItems" color="primary">
+            <ion-avatar item-end>
+                <ion-icon  (click)="toggleRelaisItem(relaisItem)" name="custom-bulb" [color]="relaisItem.status ? 'yellow':'primary'" class="icon-relais"></ion-icon>
+            </ion-avatar>
+            {{relaisItem.descr}}
+            
+          </ion-item>
+          
+         
+  </ion-list>
+
+  <img src="assets/imgs/logo.png" style="opacity:0.03;display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+
+</ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar transparent>
+      <button ion-button full text-uppercase (click)="navBack()">Back</button>
+    </ion-toolbar>
+  </ion-footer>
+

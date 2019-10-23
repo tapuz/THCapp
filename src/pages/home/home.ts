@@ -4,6 +4,7 @@ import { HeatingPage } from '../heating/heating';
 import { LivingPage } from '../living/living';
 import { GardenPage } from '../garden/garden';
 import { MasterbedroomPage } from '../masterbedroom/masterbedroom';
+import { AtticPage } from '../attic/attic';
 
 import io from 'socket.io-client';
 import * as Config from '../../config';
@@ -80,7 +81,10 @@ export class HomePage {
       this.socket.on('error', (error) => {
         app.logo ='assets/imgs/logo_red.png';
       });
-      
+    
+      this.socket.on('red',()=> {
+        console.log('red !!');
+      });
 
     }
 
@@ -100,6 +104,10 @@ export class HomePage {
  
   navToGarden(): void {
     this.navCtrl.push(GardenPage,{socket:this.socket,relaisItems:this.relaisItems,dimItems:this.dimItems});
+  }
+
+  navToAttic(): void {
+    this.navCtrl.push(AtticPage,{socket:this.socket,relaisItems:this.relaisItems,});
   }
 
   alloff():void {

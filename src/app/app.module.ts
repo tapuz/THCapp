@@ -12,6 +12,8 @@ import { HeatingPage } from '../pages/heating/heating';
 import { LivingPage } from '../pages/living/living';
 import { GardenPage } from '../pages/garden/garden';
 import { MasterbedroomPage } from '../pages/masterbedroom/masterbedroom';
+import { AtticPage } from '../pages/attic/attic';
+
 
 
 import { WordpressService } from '../services/wordpress.service';
@@ -23,6 +25,7 @@ import { File } from '@ionic-native/file';
 import { NativeStorage } from '@ionic-native/native-storage'; 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +34,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HeatingPage,
     LivingPage,
     GardenPage,
-    MasterbedroomPage
+    MasterbedroomPage,
+    AtticPage
 
   ],
   imports: [
@@ -48,7 +52,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HeatingPage,
     LivingPage,
     GardenPage,
-    MasterbedroomPage
+    MasterbedroomPage,
+    AtticPage
   ],
   providers: [
     StatusBar,

@@ -109,4 +109,5 @@
     <plugin name="cordova-sqlite-storage" spec="~2.6.0" />
     <engine name="ios" spec="~4.5.5" />
     <engine name="android" spec="~7.1.4" />
+    <plugin name="cordova-plugin-siri-shortcuts" spec="~0.0.9" />
 </widget>

@@ -50,6 +50,10 @@ ion-icon {
         mask-image: url(../assets/imgs/parking.png);
            
     }
+    &[class*="custom-dick"] {
+        mask-image: url(../assets/imgs/dick.png);
+           
+    }
   }
 
   .lamp-label-dim{
