@@ -17,6 +17,7 @@ export class GardenPage {
   socket:any;
   lightItems:any;
   sprinklerItems:any;
+  poolItems:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.socket = navParams.get('socket');
@@ -30,13 +31,16 @@ export class GardenPage {
 
   processRelaisItems(items){
     var app=this;
-     this.lightItems= this.sprinklerItems = JSON.parse(items)
+     this.lightItems = this.sprinklerItems = this.poolItems = JSON.parse(items);
          app.lightItems =  app.lightItems.filter(function(item) {
            return item.gr == "Tuin";
          });
          app.sprinklerItems =  app.sprinklerItems.filter(function(item) {
            return item.gr == "Bewatering";
          });
+         app.poolItems =  app.poolItems.filter(function(item) {
+          return item.gr == "Zwembad";
+        });
 
 
 

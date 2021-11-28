@@ -21,6 +21,16 @@
               {{relaisItem.descr}}
               
           </ion-item>
+
+          <ion-list-header>Pool</ion-list-header>
+
+          <ion-item *ngFor="let relaisItem of poolItems" style="background: transparent;" color="primary">
+              <ion-avatar item-end>
+                  <ion-icon  (click)="toggleRelaisItem(relaisItem)" name="custom-pump" [color]="relaisItem.status ? 'green':'primary'" class="icon-relais"></ion-icon>
+              </ion-avatar>
+              {{relaisItem.descr}}
+              
+          </ion-item>
             
             
     </ion-list>

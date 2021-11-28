@@ -5,6 +5,7 @@ import { LivingPage } from '../living/living';
 import { GardenPage } from '../garden/garden';
 import { MasterbedroomPage } from '../masterbedroom/masterbedroom';
 import { AtticPage } from '../attic/attic';
+import { SettingsPage } from '../settings/settings';
 
 import io from 'socket.io-client';
 import * as Config from '../../config';
@@ -108,6 +109,10 @@ export class HomePage {
 
   navToAttic(): void {
     this.navCtrl.push(AtticPage,{socket:this.socket,relaisItems:this.relaisItems,});
+  }
+
+  navToSettings(): void {
+    this.navCtrl.push(SettingsPage,{});
   }
 
   alloff():void {
