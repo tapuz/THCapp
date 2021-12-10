@@ -13,7 +13,8 @@ import { LivingPage } from '../pages/living/living';
 import { GardenPage } from '../pages/garden/garden';
 import { MasterbedroomPage } from '../pages/masterbedroom/masterbedroom';
 import { AtticPage } from '../pages/attic/attic';
-
+import { SettingsPage } from '../pages/settings/settings';
+import { MusicPage } from '../pages/music/music';
 
 
 import { WordpressService } from '../services/wordpress.service';
@@ -35,7 +36,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
     LivingPage,
     GardenPage,
     MasterbedroomPage,
-    AtticPage
+    AtticPage,
+    SettingsPage,
+    MusicPage
 
   ],
   imports: [
@@ -53,7 +56,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
     LivingPage,
     GardenPage,
     MasterbedroomPage,
-    AtticPage
+    AtticPage,
+    SettingsPage,
+    MusicPage
   ],
   providers: [
     StatusBar,

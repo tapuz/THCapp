@@ -6,6 +6,7 @@ import { GardenPage } from '../garden/garden';
 import { MasterbedroomPage } from '../masterbedroom/masterbedroom';
 import { AtticPage } from '../attic/attic';
 import { SettingsPage } from '../settings/settings';
+import { MusicPage } from '../music/music';
 
 import io from 'socket.io-client';
 import * as Config from '../../config';
@@ -26,6 +27,7 @@ export class HomePage {
   buttonColor:any;
   CarwashBtnOutline:boolean=true;
   ParkingBtnOutline:boolean=true;
+  yamaha_status:any;
   relaisItems:any;
   dimItems:any;
   logo:any;
@@ -43,6 +45,10 @@ export class HomePage {
       this.socket.on("temp", (temp) => {
           this.temp=temp;
           
+      });
+
+      this.socket.on("yamaha_status", (status) => {
+        this.yamaha_status=status;
       });
       
       //this.socket.emit("getStats");
@@ -113,6 +119,10 @@ export class HomePage {
 
   navToSettings(): void {
     this.navCtrl.push(SettingsPage,{});
+  }
+
+  navToMusic(): void {
+    this.navCtrl.push(MusicPage,{socket:this.socket});
   }
 
   alloff():void {

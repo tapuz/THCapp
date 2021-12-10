@@ -1,7 +1,7 @@
 
 
 <ion-content no-padding class="card-background-page bg">
-  <img ng-click="comingHome()" src="{{logo}}" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+  <img (click)="navToSettings()" src="{{logo}}" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
   <ion-grid>
     <ion-row>
       <ion-col col-6 col-md-6 col-xl-6>
@@ -55,6 +55,20 @@
             Heating ({{temp}}°C)</button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button (click)="navToMusic()" ion-button full outline class="thcButton" style="margin-top:30px;"  type="button">
+          <ion-icon style="font-size:70px;margin-top:-10px;margin-right:7px;" name="custom-amp" [color]="yamaha_status ? 'green':'primary'"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-12>
+        
+    </ion-col>
+
+    </ion-row>
+
+
+
   </ion-grid>
   <img src="assets/imgs/logo.png" style="opacity:0.03;display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
 

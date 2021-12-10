@@ -30,6 +30,29 @@ ion-icon {
     &[class*="custom-bulb"] {
       mask-image: url(../assets/imgs/bulb.svg);
     }
+
+    &[class*="custom-amp"] {
+      mask-image: url(../assets/imgs/amp.png);
+    }
+
+    &[class*="custom-power"] {
+      mask-image: url(../assets/imgs/power.png);
+    }
+
+    &[class*="custom-airplay"] {
+      mask-image: url(../assets/imgs/airplay.png);
+    }
+
+    &[class*="custom-tuner"] {
+      mask-image: url(../assets/imgs/tuner.png);
+    }
+
+    &[class*="custom-volumeup"] {
+      mask-image: url(../assets/imgs/volplus.png);
+    }
+    &[class*="custom-volumedown"] {
+      mask-image: url(../assets/imgs/volmin.png);
+    }
     
     &[class*="custom-heating"] {
      mask-image: url(../assets/imgs/heating.png);

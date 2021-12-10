@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//import { Storage } from '@ionic/storage';
+//import { Router } from '@angular/router';
 
 /**
  * Generated class for the SettingsPage page.
@@ -14,10 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ip:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) { 
+      
+    
   }
 
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
   }
