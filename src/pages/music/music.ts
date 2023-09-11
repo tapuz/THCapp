@@ -35,9 +35,9 @@ export class MusicPage {
       
     });
 
-    setInterval(function(){ app.yamaha('input'); }, 1000);
-    setInterval(function(){ app.yamaha('status'); }, 1000);
-    setInterval(function(){ app.yamaha('volume'); }, 1000);
+    setInterval(function(){ app.yamaha('input'); }, 5000);
+    setInterval(function(){ app.yamaha('status'); }, 5000);
+    setInterval(function(){ app.yamaha('volume'); }, 4000);
     
   }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NativeStorage } from '@ionic-native/native-storage';
 //import { Storage } from '@ionic/storage';
 //import { Router } from '@angular/router';
 
@@ -14,15 +15,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
+
 })
 export class SettingsPage {
   ip:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) { 
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams,public nativeStorage: NativeStorage,) {
+
+    
+    this.nativeStorage.getItem('ip').then(data => {this.ip = data});
+      
+    
       
     
   }
 
-  
+  save() {
+    
+    this.nativeStorage.setItem('ip',this.ip ) ;
+  }
+
+  navBack() {
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
   }

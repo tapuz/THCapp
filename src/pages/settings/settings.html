@@ -2,16 +2,18 @@
     <form>
         <ion-item lines="full">
           <ion-label position="floating">THC IP</ion-label>
-          <ion-input type="text" [(ngModel)]="ip" name="ip"></ion-input>
+          <ion-input type="text" [(ngModel)]="ip" name="ip" (ionBlur)="save()"></ion-input>
+          
         </ion-item>
     
         
-    
-        <ion-row>
-          <ion-col>
-            <button (click)="save()" type="submit" color="danger" expand="block">Save</button>
-            
-          </ion-col>
-        </ion-row>
+
       </form>
 </ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar transparent>
+    <button ion-button full text-uppercase (click)="navBack()">Back</button>
+  </ion-toolbar>
+</ion-footer>

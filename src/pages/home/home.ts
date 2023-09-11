@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { HeatingPage } from '../heating/heating';
 import { LivingPage } from '../living/living';
 import { GardenPage } from '../garden/garden';
@@ -8,7 +9,8 @@ import { AtticPage } from '../attic/attic';
 import { SettingsPage } from '../settings/settings';
 import { MusicPage } from '../music/music';
 
-import io from 'socket.io-client';
+
+import io from  'socket.io-client';
 import * as Config from '../../config';
 
 
@@ -31,19 +33,32 @@ export class HomePage {
   relaisItems:any;
   dimItems:any;
   logo:any;
+  ip:any;
   
-
   
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,public nativeStorage: NativeStorage 
     )
     {
-      console.log('constructor Home');
-      var app = this;
-      this.socket = io(Config.THCServer);
+    
+      this.logo = 'assets/imgs/logo_red.png';
+      this.initSocket();
+      
+      
+
+    }
+
+  initSocket(): void{
+    this.nativeStorage.getItem('ip').then(data => {
+        this.ip = data;
+    var app = this;
+    var url = "http://" + this.ip + ":4000";
+    //var url = "http://192.168.0.100:4000";
+    this.socket = io(url);
+    console.log('connecting!!!! babay');
       this.socket.on("temp", (temp) => {
-          this.temp=temp;
+        this.temp=temp;
           
       });
 
@@ -92,8 +107,10 @@ export class HomePage {
       this.socket.on('red',()=> {
         console.log('red !!');
       });
+      
+    });
 
-    }
+  }  
 
   navToHeating(): void {
     this.navCtrl.push(HeatingPage,{socket:this.socket,temp:this.temp,relaisItems:this.relaisItems});
@@ -173,14 +190,17 @@ export class HomePage {
     
   }
   
-  
 
   ionViewWillEnter() {
    
     console.log('ionViewWillEnter HomePage');
+    this.initSocket();
   }
   
-  
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SettingsPage');
+    
+  }
 
  
 
